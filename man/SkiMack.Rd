@@ -14,7 +14,7 @@ and the chi-squared distribution for the Skillings-Mack test statistic.
   \item{B}{If simulate.p.value = TRUE, the default number of replications is 10,000.}}
 \details{
 This function implements the Skilling-Mack test statistic for data obtained from block designs with missing observations. The skillings.mack function
-can also applied to balanced and partially balanced incomplete block designs. It reads a dataset from a vector or a matrix and returns a p-value based on the chi-squared distribution. If simulate.p.value = TRUE, an estimated p-value based on Monte Carlo will be provided.}
+can also applied to balanced and partially balanced incomplete block designs. It reads a dataset from a vector or a matrix and returns a p-value based on the chi-squared distribution. If simulate.p.value = TRUE, an estimated p-value based on Monte Carlo will be provided. If there are ties in a particular block, the average rank for ties will be generated for those ties in that block. If no ties is in the block, ranks 1, 2, ..., t are generated in that block, where t is the number of treatments appeared in that block.}
 \value{
    \item{$Nblocks}{the number of blocks in a design}
    \item{$Ntreatments}{the number of groups (treatments) in a design}

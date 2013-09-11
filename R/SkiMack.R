@@ -107,7 +107,7 @@ for(i in 1:k){
 	num.missing <- matrix(NA,nrow=k,ncol=1)
 	num.missing[i,1] <- sum(logic.d[,i])	
 	count <- 0
-	rand.int<- as.vector(sample(1:(t-num.missing[i,1]),replace = FALSE))
+	rand.int<- sample(y.rank[!is.na(y.rank[,i]),i],replace = FALSE)
 	for (j in 1:t){
 			if(logic.d[j,i] == TRUE){y.sim[j,i]<- NA}
  			if(logic.d[j,i] == FALSE){
