@@ -2,8 +2,7 @@
 \alias{SkiMack}
 \title{The Skillings-Mack test statistic}
 \description{
-This function will estimate the p-values based on the Monte Carlo method
-and the chi-squared distribution for the Skillings-Mack test statistic.
+The Skillings-Mack test statistic is a generalization of the statistic used in Friedman's ANOVA method and in Durbin's rank test. This nonparametric statistical test is useful for the data obtained from block designs with missing observations occurring randomly. The results from the SkiMack function are the Skillings-Mack statistic, p-values based on the chi-squared distribution and Monte Carlo method. The Monte Carlo method is recommended for approximating p-values when there are many ties and/or small designs with missing values are conducted.
 }
 \usage{SkiMack(y, groups=NULL, blocks=NULL, simulate.p.value = FALSE, B = 10000)}
 \arguments{
@@ -14,7 +13,7 @@ and the chi-squared distribution for the Skillings-Mack test statistic.
   \item{B}{If simulate.p.value = TRUE, the default number of replications is 10,000.}}
 \details{
 This function implements the Skilling-Mack test statistic for data obtained from block designs with missing observations. The skillings.mack function
-can also applied to balanced and partially balanced incomplete block designs. It reads a dataset from a vector or a matrix and returns a p-value based on the chi-squared distribution. If simulate.p.value = TRUE, an estimated p-value based on Monte Carlo will be provided. If there are ties in a particular block, the average rank for ties will be generated for those ties in that block. If no ties is in the block, ranks 1, 2, ..., t are generated in that block, where t is the number of treatments appeared in that block.}
+can also applied to balanced and partially balanced incomplete block designs. It reads a dataset from a vector or a matrix and returns a p-value based on the chi-squared distribution. If simulate.p.value = TRUE, an estimated p-value based on Monte Carlo will be provided. If there are ties in a particular block, the average rank for those will be generated in simulating data under the null hypothesis.}
 \value{
    \item{$Nblocks}{the number of blocks in a design}
    \item{$Ntreatments}{the number of groups (treatments) in a design}
