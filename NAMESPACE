@@ -1,1 +1,4 @@
-exportPattern("^[[:alpha:]]+")
+export(Ski.Mack)
+importFrom("stats", pchisq)
+importFrom("MASS", ginv)
+importFrom("matrixcalc", matrix.rank)
