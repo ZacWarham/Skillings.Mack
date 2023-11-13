@@ -1,7 +1,3 @@
-README
-================
-Zac Warham
-2023-11-12
 
 # Skillings.Mack.Suppress
 
