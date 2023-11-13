@@ -1,0 +1,61 @@
+---
+title: "README"
+author: "Zac Warham"
+date: "`r Sys.Date()`"
+output: github_document
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+
+library(Skillings.Mack.Suppress)
+```
+
+# Skillings.Mack.Suppress
+
+<!-- badges: start -->
+
+![](https://img.shields.io/badge/r-%23276DC3.svg?style=for-the-badge&logo=r&logoColor=white) 
+
+<!-- badges: end -->
+
+## Changes
+
+This repository is a small update to the [Skillings.Mack](https://github.com/cran/Skillings.Mack "Skillings.Mack CRAN Mirror") package with the purpose of providing more options for outputting the results. The original options would print the following;
+
+```{r data, results='hide', echo=FALSE}
+
+some_matrix <- matrix(
+   c(3.2,4.1,3.8,4.2,		3.1,3.9,3.4,4.0,	 4.3,3.5,4.6,4.8, 
+     3.5,3.6,3.9,4.0,   3.6,4.2,3.7,3.9,   4.5,4.7,3.7, NA,
+	   NA ,4.2,3.4,NA ,   4.3,4.6,4.4,4.9,   3.5, NA,3.7, 3.9),
+    ncol=9,byrow=FALSE)
+
+```
+
+```{r example_original, results='hide'}
+Ski.Mack(some_matrix, simulate.p.value = TRUE, B = 1000)
+
+```
+
+[![Original](README_files/original.png)](https://github.com/ZacWarham "Go to author's page")
+
+Whilst useful, if you were to assign the result to a variable you would still have the same output in your console or markdown. By adding a new parameter, `suppress = TRUE`, this reduces the output to just the test statistics results like this;
+
+[![Surpressed](README_files/suppressed.png)](https://github.com/ZacWarham "Go to author's page")
+
+This is particularly useful when trying to knit a document with a very large matrix or if you have to run similar tests multiple times. Instead of hiding the entire output, you just see the test statistics results.
+
+A further addition was to include the *p-value* and *Simulated p-value* in the output list so they can be accessed when stored in a variable.
+
+```{r example_pvalue_display}
+some_result <- Ski.Mack(some_matrix, simulate.p.value = TRUE, B = 1000, suppress = TRUE)
+
+some_result$pValue
+some_result$pValueSim
+```
+
+[![Complete](README_files/complete.png)](https://github.com/ZacWarham "Go to author's page")
