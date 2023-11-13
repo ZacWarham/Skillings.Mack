@@ -53,3 +53,19 @@ some_result$pValueSim
 ```
 
 [![Complete](README_files/complete.png)](https://github.com/ZacWarham "Go to author's page")
+
+## Installation
+
+This package can be installed from
+[GitHub](https://github.com/ZacWarham/Skillings.Mack) with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("ZacWarham/Skillings.Mack")
+```
+
+Once installed this release should be fully compatible with all working
+code from the original release. To reduce the output you just need to
+add the `suppress = FALSE` parameter. Both additional values should
+automatically be included in any assigned variables. If there are any
+problems please create an issue in this repository.
