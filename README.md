@@ -5,18 +5,18 @@ Zac Warham
 
 # Skillings.Mack.Suppress
 
-<!-- badges: start -->
-
-![](https://img.shields.io/badge/r-%23276DC3.svg?style=for-the-badge&logo=r&logoColor=white)
-
-<!-- badges: end -->
+> “A generalization of the statistic used in Friedman’s ANOVA method and
+> in Durbin’s rank test. This nonparametric statistical test is useful
+> for the data obtained from block designs with missing observations
+> occurring randomly. A resulting p-value is based on the chi-squared
+> distribution and Monte Carlo method.” - Patchanok Srisuradetchai
 
 ## Changes
 
 This repository is a small update to the
 [Skillings.Mack](https://github.com/cran/Skillings.Mack "Skillings.Mack CRAN Mirror")
 package with the purpose of providing more options for outputting the
-results. The original options would print the following:
+results. The original options would print the following;
 
 ``` r
 Ski.Mack(some_matrix, simulate.p.value = TRUE, B = 1000)
@@ -27,7 +27,7 @@ Ski.Mack(some_matrix, simulate.p.value = TRUE, B = 1000)
 Whilst useful, if you were to assign the result to a variable you would
 still have the same output in your console or markdown. By adding a new
 parameter, `suppress = TRUE`, this reduces the output to just the test
-statistics results like this:
+statistics results like this;
 
 [![Surpressed](README_files/suppressed.png)](https://github.com/ZacWarham "Go to author's page")
 
@@ -43,13 +43,13 @@ some_result <- Ski.Mack(some_matrix, simulate.p.value = TRUE, B = 1000, suppress
 #> 
 #> Skillings-Mack Statistic =  15.493049 , p-value =  0.001440 
 #> Note: the p-value is based on the chi-squared distribution with d.f. =  3 
-#> Based on B =  1000 , Simulated p-value =  0.001000
+#> Based on B =  1000 , Simulated p-value =  0.000000
 
 some_result$pValue
 #>                [,1]
 #> [1,] 0.001440296302
 some_result$pValueSim
-#> [1] 0.001
+#> [1] 0
 ```
 
 [![Complete](README_files/complete.png)](https://github.com/ZacWarham "Go to author's page")
