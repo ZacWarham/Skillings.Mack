@@ -56,12 +56,15 @@ This package can be installed from
 [GitHub](https://github.com/ZacWarham/Skillings.Mack) with:
 
 ``` r
-# install.packages("devtools")
+install.packages("devtools")
 devtools::install_github("ZacWarham/Skillings.Mack")
+
+library(Skillings.Mack.Suppress)
 ```
 
 Once installed this release should be fully compatible with all working
 code from the original release. To reduce the output you just need to
 add the `suppress = FALSE` parameter. Both additional values should
-automatically be included in any assigned variables. If there are any
+automatically be included in any assigned variables. Make sure to detach
+the library and load `Skillings.Mack.Suppress` first. If there are any
 problems please create an issue in this repository.
