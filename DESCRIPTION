@@ -1,6 +1,6 @@
-Package: Skillings.Mack
-Version: 1.10
-Date: 2015-09-25
+Package: Skillings.Mack.Suppress
+Version: 1.11
+Date: 2023-11-25
 Title: The Skillings-Mack Test Statistic for Block Designs with Missing
         Observations
 Author: Patchanok Srisuradetchai
@@ -11,6 +11,3 @@ Description: A generalization of the statistic used in Friedman's ANOVA method a
 License: GPL (>= 2)
 LazyLoad: yes
 NeedsCompilation: no
-Repository: CRAN
-Packaged: 2015-09-25 09:16:59 UTC; Patchanok
-Date/Publication: 2015-09-25 14:16:27

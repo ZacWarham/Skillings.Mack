@@ -4,13 +4,13 @@
 \description{
 The Skillings-Mack test statistic is a generalization of the statistic used in Friedman's ANOVA method and in Durbin's rank test. This nonparametric statistical test is useful for the data obtained from block designs with missing observations occurring randomly. The results from the SkiMack function are the Skillings-Mack statistic, p-values based on the chi-squared distribution and Monte Carlo method. The Monte Carlo method is recommended for approximating p-values when there are many ties and/or small designs with missing values are conducted.
 }
-\usage{SkiMack(y, groups=NULL, blocks=NULL, simulate.p.value = FALSE, B = 10000)}
 \arguments{
   \item{y}{Either a numeric vector of data values, or a data matrix. If a matrix is used, columns and rows are correspondent to blocks and treatments (groups), respectively.}
   \item{groups}{A vector giving the group (treatment) for the corresponding elements of y if this is a vector; ignored if y is a matrix. Either a numeric or character vector is accepted.}
   \item{blocks}{A vector giving the block for the corresponding elements of y if this is a vector; ignored if y is a matrix. Either a numeric or character vector is accepted.}
   \item{simulate.p.value}{If TRUE, an estimated p-value based on the Monte Carlo approach is calculated. The default is FALSE.}
-  \item{B}{If simulate.p.value = TRUE, the default number of replications is 10,000.}}
+  \item{B}{If simulate.p.value = TRUE, the default number of replications is 10,000.}
+  \item{suppress}{If TRUE, this will hide the data view in the output. The default is FALSE.}}
 \details{
 This function implements the Skilling-Mack test statistic for data obtained from block designs with missing observations. The skillings.mack function
 can also applied to balanced and partially balanced incomplete block designs. It reads a dataset from a vector or a matrix and returns a p-value based on the chi-squared distribution. If simulate.p.value = TRUE, an estimated p-value based on Monte Carlo will be provided. If there are ties in a particular block, the average rank for those will be generated in simulating data under the null hypothesis.}
@@ -21,6 +21,8 @@ can also applied to balanced and partially balanced incomplete block designs. It
    \item{$rankdata}{a matrix containing ranks of the data}
    \item{$varCovarMatrix}{the variance-covariance matrix for adjusted treatment sums}
    \item{$adjustedSum}{the adjusted treatment sum,Aj, for the jth treatment}
+   \item{$pValue}{the calculated p-value for the test}
+   \item{$pValueSim}{the simulated p-value when simulate.p.value = TRUE}
 }
 \references{
 Skillings, J.H., Mack, G.A.: On the Use of a Friedman-Type Statistic in Balanced and Unbalanced Block Designs. Technometrics 23(2), 171-177 (1981)

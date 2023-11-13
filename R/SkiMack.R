@@ -1,5 +1,8 @@
 SkiMack <- function(y, groups=NULL, blocks=NULL,
-                    simulate.p.value = FALSE, B = 10000){
+                    simulate.p.value = FALSE, B = 10000, suppress = FALSE){
+  
+  .Defunct(msg = "This is not an exported function and assumed to be non-functional")
+  
   specify_decimal <- function(x, k) format(round(x, k), nsmall=k)
   options(digits=10)
   if(!is.matrix(y)){
@@ -140,19 +143,33 @@ SkiMack <- function(y, groups=NULL, blocks=NULL,
     }    
     sim.pval<- round(sum(simulated.SM >= as.numeric(T))/B,digits = 7)
   }
+  
+  pval<- pchisq(T, df = rank.cov , lower.tail = FALSE)
+  
   if(simulate.p.value == TRUE){
     cat("\n")
-    cat(c("Skillings-Mack Statistic = "),specify_decimal(T,6),c(", p-value = "),specify_decimal(pchisq(T, df = rank.cov , lower.tail = FALSE),6),"\n")
+    cat(c("Skillings-Mack Statistic = "),specify_decimal(T,6),c(", p-value = "),specify_decimal(pval,6),"\n")
     cat(c("Note: the p-value is based on the chi-squared distribution with d.f. = "),rank.cov,"\n")
     cat(c("Based on B = "),specify_decimal(B,0),c(", Simulated p-value = "),specify_decimal(sim.pval,6),"\n")
     cat("\n")
   }
   if(simulate.p.value == FALSE){
     cat("\n")
-    cat(c("Skillings-Mack Statistic = "),specify_decimal(T,6),c(", p-value = "),specify_decimal(pchisq(T, df = rank.cov , lower.tail = FALSE),6),"\n")
+    cat(c("Skillings-Mack Statistic = "),specify_decimal(T,6),c(", p-value = "),specify_decimal(pval,6),"\n")
     cat(c("Note: the p-value is based on the chi-squared distribution with d.f. = "),rank.cov,"\n")
     cat("\n")
   }
-  print(list(Nblocks = k, Ntreatments = t, rawdata = d, rankdata =  y.rank,
-             varCovarMatrix = CovMat, adjustedSum = A ))
+  
+  results <- list(Nblocks = k, Ntreatments = t, rawdata = d, rankdata =  y.rank,
+                  varCovarMatrix = CovMat, adjustedSum = A, pValue = pval)
+  
+  if(simulate.p.value == TRUE) {
+    results <- c(results, list(pValueSim = sim.pval))
+  }
+  
+  if(!suppress) {
+    print(results)
+  } else {
+    return(results)
+  }
 }
