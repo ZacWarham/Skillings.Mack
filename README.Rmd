@@ -41,7 +41,7 @@ Whilst useful, if you were to assign the result to a variable you would still ha
 
 [![Surpressed](README_files/suppressed.png)](https://github.com/ZacWarham "Go to author's page")
 
-This is particularly useful when trying to knit a document with a very large matrix or if you have to run similar tests multiple times. Instead of hiding the entire output, you just see the test statistics results.
+This is particularly useful when trying to knit a document with a very large matrix or if you have to run similar tests multiple times. Instead of hiding the entire output, you just see the test statistics results. Please note, this only reduces the output when you assign the result to a variable.
 
 A further addition was to include the *p-value* and *Simulated p-value* in the output list so they can be accessed when stored in a variable.
 

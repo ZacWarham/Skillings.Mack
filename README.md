@@ -30,6 +30,8 @@ statistics results like this;
 This is particularly useful when trying to knit a document with a very
 large matrix or if you have to run similar tests multiple times. Instead
 of hiding the entire output, you just see the test statistics results.
+Please note, this only reduces the output when you assign the result to
+a variable.
 
 A further addition was to include the *p-value* and *Simulated p-value*
 in the output list so they can be accessed when stored in a variable.
@@ -39,13 +41,13 @@ some_result <- Ski.Mack(some_matrix, simulate.p.value = TRUE, B = 1000, suppress
 #> 
 #> Skillings-Mack Statistic =  15.493049 , p-value =  0.001440 
 #> Note: the p-value is based on the chi-squared distribution with d.f. =  3 
-#> Based on B =  1000 , Simulated p-value =  0.000000
+#> Based on B =  1000 , Simulated p-value =  0.001000
 
 some_result$pValue
 #>                [,1]
 #> [1,] 0.001440296302
 some_result$pValueSim
-#> [1] 0
+#> [1] 0.001
 ```
 
 [![Complete](README_files/complete.png)](https://github.com/ZacWarham "Go to author's page")
